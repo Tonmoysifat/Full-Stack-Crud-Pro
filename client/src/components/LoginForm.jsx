@@ -26,7 +26,7 @@ const LoginForm = () => {
         let email = formData.get("email")
         let password = formData.get("password")
         setBtnLoader(true)
-        let res = await axios.post(`${window.location.origin}/api/loginUser`,{
+        let res = await axios.post(`/api/loginUser`,{
             email:email,
             password:password
         })

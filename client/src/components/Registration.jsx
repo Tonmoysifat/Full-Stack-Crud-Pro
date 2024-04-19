@@ -28,7 +28,7 @@ const Registration = () => {
         let mobile = formData.get("mobile")
         let password = formData.get("password")
         setBtnLoader(true)
-        let res = await axios.post(`${window.location.origin}/api/createUser`, {
+        let res = await axios.post(`/api/createUser`, {
             email: email,
             firstname: firstname,
             lastname: lastname,

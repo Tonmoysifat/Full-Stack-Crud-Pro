@@ -18,7 +18,7 @@ const UpdatePlayersForm = () => {
     }, []);
 
     const CreatedPlayers = async (id) => {
-        let res = await axios.get(`${window.location.origin}/api/readBYId/${id}`, Helper.tokenHeader())
+        let res = await axios.get(`/api/readBYId/${id}`, Helper.tokenHeader())
         setPlayer(res.data["playerData"][0])
     }
     const playerInfo = async (e) => {
