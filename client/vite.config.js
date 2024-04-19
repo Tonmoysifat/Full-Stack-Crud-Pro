@@ -7,8 +7,8 @@ export default defineConfig({
   server:{
     proxy:{
       '/api/':{
-        target:`${window.location.origin}`
-        // target:"http://localhost:5414"
+        // target:`${window.location.origin}`
+        target:"http://localhost:5414"
       }
     }
   }
