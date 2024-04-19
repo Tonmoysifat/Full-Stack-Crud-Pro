@@ -32,7 +32,7 @@ mongoose.connect(URL, OPTION).then(() => {
 app.set("etag", false)
 
 app.use("/api", router)
-app.use(express.static("client/dist/"))
+app.use(express.static("client/dist"))
 app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
 })
