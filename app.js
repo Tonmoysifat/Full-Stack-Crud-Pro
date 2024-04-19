@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 const mongoose = require("mongoose")
 const path = require("path");
 app.use(cookieParser());
-app.use(cors());
+// app.use(cors());
 app.use(helmet());
 app.use(hpp());
 app.use(express.json({limit: "50mb"}));
