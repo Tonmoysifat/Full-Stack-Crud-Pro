@@ -18,7 +18,7 @@ const UpdatePlayersForm = () => {
     }, []);
 
     const CreatedPlayers = async (id) => {
-        let res = await axios.get(`${Helper.BaseApi()}/api/readBYId/${id}`, Helper.tokenHeader())
+        let res = await axios.get(`/api/readBYId/${id}`, Helper.tokenHeader())
         setPlayer(res.data["playerData"][0])
     }
     const playerInfo = async (e) => {
@@ -29,7 +29,7 @@ const UpdatePlayersForm = () => {
         let nationality = formData.get("nationality")
         let age = formData.get("age")
         setBtnLoader(true)
-        let res = await axios.post(`${Helper.BaseApi()}/api/updateSportsman/${id}`, {
+        let res = await axios.post(`/api/updateSportsman/${id}`, {
             name: name,
             sport: sport,
             nationality: nationality,

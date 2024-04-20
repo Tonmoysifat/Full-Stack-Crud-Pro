@@ -13,8 +13,7 @@ class Helper {
     }
     static BaseApi() {
         // return "http://localhost:5414";
-        // return `${window.location.origin}`;
-        return `https://full-stack-crud-pro.vercel.app`;
+        return `${window.location.origin}`;
     }
     static isEmptyEmail(value) {
         return value.length === 0;

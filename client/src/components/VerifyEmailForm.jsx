@@ -12,7 +12,7 @@ const VerifyEmailForm = () => {
         let formData = new FormData(e.target)
         let email = formData.get("email")
         setBtnLoader(true)
-        let res = await axios.post(`${Helper.BaseApi()}/api/createUser`,{
+        let res = await axios.post(`/api/createUser`,{
             email:email
         })
         // setBtnLoader(false)

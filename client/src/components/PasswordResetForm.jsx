@@ -39,7 +39,7 @@ const PasswordResetForm = () => {
         let NewPassword = formData.get("NewPassword")
         let ConfirmPassword = formData.get("ConfirmPassword")
         setBtnLoader(true)
-        let res = await axios.post(`${Helper.BaseApi()}/api/passwordReset`, {
+        let res = await axios.post(`/api/passwordReset`, {
             email: email,
             otp: otp,
             NewPassword: NewPassword,

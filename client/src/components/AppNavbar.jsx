@@ -11,7 +11,7 @@ const AppNavbar = () => {
         })()
     }, []);
     const registeredUser = async () => {
-        let res = await axios.get(`${Helper.BaseApi()}/api/readUser`, Helper.tokenHeader())
+        let res = await axios.get(`/api/readUser`, Helper.tokenHeader())
         setUser(res.data["UserInformation"][0])
     }
     const logout = () => {
