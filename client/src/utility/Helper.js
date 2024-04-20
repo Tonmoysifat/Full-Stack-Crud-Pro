@@ -11,6 +11,9 @@ class Helper {
             }
         }
     }
+    static BaseApi() {
+        return "http://localhost:5414";
+    }
     static isEmptyEmail(value) {
         return value.length === 0;
     }
