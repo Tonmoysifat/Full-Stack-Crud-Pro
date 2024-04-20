@@ -15,7 +15,7 @@ const UpdateUserForm = () => {
         })()
     }, []);
     const registeredUser = async () => {
-        let res = await axios.get(`/api/readUser`, Helper.tokenHeader())
+        let res = await axios.get(`${Helper.BaseApi()}/api/readUser`, Helper.tokenHeader())
         setUser(res.data["UserInformation"][0])
     }
     const userInfo = async (e) => {
@@ -26,7 +26,7 @@ const UpdateUserForm = () => {
         let mobile = formData.get("mobile")
         // let password = formData.get("password")
         setBtnLoader(true)
-        let res = await axios.post(`/api/updateUser`, {
+        let res = await axios.post(`${Helper.BaseApi()}/api/updateUser`, {
             // email: user !== null ? (user["email"]) : "",
             firstname: firstname,
             lastname: lastname,

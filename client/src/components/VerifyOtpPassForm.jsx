@@ -13,7 +13,7 @@ const VerifyOtpPassForm = () => {
         let otp = formData.get("otp")
         let email = sessionStorage.getItem("email")
         setBtnLoader(true)
-        let res = await axios.post(`/api/verifyOtpForPass`, {
+        let res = await axios.post(`${Helper.BaseApi()}/api/verifyOtpForPass`, {
             otp: otp,
             email: email,
         })

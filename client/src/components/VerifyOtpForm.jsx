@@ -17,7 +17,7 @@ const VerifyOtpForm = () => {
         let mobile = sessionStorage.getItem("mobile")
         let password = sessionStorage.getItem("password")
         setBtnLoader(true)
-        let res = await axios.post(`/api/verifyOtp`,{
+        let res = await axios.post(`${Helper.BaseApi()}/api/verifyOtp`,{
             otp:otp,
             email:email,
             firstname:firstname,

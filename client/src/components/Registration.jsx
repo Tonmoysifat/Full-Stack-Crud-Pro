@@ -28,7 +28,7 @@ const Registration = () => {
         let mobile = formData.get("mobile")
         let password = formData.get("password")
         setBtnLoader(true)
-        let res = await axios.post(`/api/createUser`, {
+        let res = await axios.post(`${Helper.BaseApi()}/api/createUser`, {
             email: email,
             firstname: firstname,
             lastname: lastname,

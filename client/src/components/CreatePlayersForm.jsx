@@ -17,7 +17,7 @@ const CreatePlayersForm = () => {
         let nationality = formData.get("nationality")
         let age = formData.get("age")
         setBtnLoader(true)
-        let res = await axios.post(`/api/createSportsman`,{
+        let res = await axios.post(`${Helper.BaseApi()}/api/createSportsman`,{
             name:name,
             sport:sport,
             nationality:nationality,

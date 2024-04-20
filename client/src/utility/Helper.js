@@ -12,7 +12,8 @@ class Helper {
         }
     }
     static BaseApi() {
-        return "http://localhost:5414";
+        // return "http://localhost:5414";
+        return `${window.location.origin}`;
     }
     static isEmptyEmail(value) {
         return value.length === 0;
