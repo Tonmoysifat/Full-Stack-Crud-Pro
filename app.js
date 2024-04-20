@@ -4,12 +4,12 @@ const app = express();
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const hpp = require("hpp")
-// const cors = require("cors")
+const cors = require("cors")
 const cookieParser = require('cookie-parser');
 const mongoose = require("mongoose")
 const path = require("path");
 app.use(cookieParser());
-// app.use(cors());
+app.use(cors());
 app.use(helmet());
 app.use(hpp());
 app.use(express.json({limit: "50mb"}));
