@@ -8,6 +8,7 @@ const cors = require("cors")
 const cookieParser = require('cookie-parser');
 const mongoose = require("mongoose")
 const path = require("path");
+require("dotenv").config();
 app.use(cookieParser());
 app.use(cors());
 app.use(helmet());
@@ -21,7 +22,8 @@ const limiter = rateLimit({
 app.use(limiter);
 
 
-let URL = "mongodb://localhost:27017/Full-stack-crud-pro"
+// let URL = "mongodb://localhost:27017/Full-stack-crud-pro"
+let URL = process.env.DATABASE_URL
 let OPTION = {user: "", pass: "", autoIndex: true};
 mongoose.connect(URL, OPTION).then(() => {
     console.log("Database Connected")

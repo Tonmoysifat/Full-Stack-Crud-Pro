@@ -36,8 +36,8 @@ exports.readBYId = async (req,res)=>{
         let email = req.headers["email"];
         let {id}=req.params
         const data = await players.find(
-            { _id: id, email: email }, // Query criteria
-            { email: 0, createdAt: 0, updatedAt: 0 } // Projection fields
+            { _id: id, email: email },
+            { email: 0, createdAt: 0, updatedAt: 0 }
         );
 
         res.json({status: "success", playerData: data});
