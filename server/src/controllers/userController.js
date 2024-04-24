@@ -31,20 +31,7 @@ exports.createUser = async (req, res) => {
 
 exports.verifyOtp = async (req, res) => {
     try {
-        // const email = req.headers["email"];
-        // const firstname = req.headers["firstname"];
-        // const lastname = req.headers["lastname"];
-        // const mobile = req.headers["mobile"];
-        // const password = req.headers["password"];
         let userMData = req.body
-        // let userMData = {
-        //     email:email,
-        //     firstname:firstname,
-        //     lastname:lastname,
-        //     mobile:mobile,
-        //     password:password
-        // }
-        // const otp = req.body["otp"];
         let user = await otpNumbers.find({
             email: userMData["email"],
             otp: userMData["otp"],
@@ -171,9 +158,9 @@ exports.passwordReset = async (req, res) => {
             }
 
         } else {
-            res.status(404).json({
+            res.status(200).json({
                 status: "fail",
-                data: "Please new password and confirm password should be equal",
+                message: "New password and Confirm password should be equal",
             });
         }
     } catch (error) {

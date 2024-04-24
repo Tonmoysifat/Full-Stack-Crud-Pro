@@ -3,6 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import toast, {Toaster} from "react-hot-toast";
 import BtnLoader from "./BTNLoader.jsx";
+import Helper from '../utility/Helper.js';
 
 const PasswordResetForm = () => {
     let [showPass, setShowPass] = useState(false)
@@ -39,7 +40,7 @@ const PasswordResetForm = () => {
         let NewPassword = formData.get("NewPassword")
         let ConfirmPassword = formData.get("ConfirmPassword")
         setBtnLoader(true)
-        let res = await axios.post(`/api/passwordReset`, {
+        let res = await axios.post(`${Helper.BaseApi()}/passwordReset`, {
             email: email,
             otp: otp,
             NewPassword: NewPassword,
@@ -54,7 +55,8 @@ const PasswordResetForm = () => {
                 navigate("/login")
             }, 2000)
         } else {
-            toast.error("Request Fail")
+            toast.error(res.data["message"])
+            setBtnLoader(false)
         }
     }
     return (

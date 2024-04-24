@@ -3,6 +3,7 @@ import axios from "axios";
 import toast, {Toaster} from "react-hot-toast";
 import {Link, useNavigate} from "react-router-dom";
 import BtnLoader from "./BTNLoader.jsx";
+import Helper from '../utility/Helper.js';
 
 const Registration = () => {
     let [showPass,setShowPass]=useState(false)
@@ -28,7 +29,8 @@ const Registration = () => {
         let mobile = formData.get("mobile")
         let password = formData.get("password")
         setBtnLoader(true)
-        let res = await axios.post(`/api/createUser`, {
+        // let res = await axios.post(`https://full-stack-crud-pro-1py3.vercel.app/api/createUser`, {
+        let res = await axios.post(`${Helper.BaseApi()}/createUser`, {
             email: email,
             firstname: firstname,
             lastname: lastname,

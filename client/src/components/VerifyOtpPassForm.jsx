@@ -3,6 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import toast, {Toaster} from "react-hot-toast";
 import BtnLoader from "./BTNLoader.jsx";
+import Helper from '../utility/Helper.js';
 
 const VerifyOtpPassForm = () => {
     const [btnloader, setBtnLoader] = useState(false)
@@ -13,7 +14,7 @@ const VerifyOtpPassForm = () => {
         let otp = formData.get("otp")
         let email = sessionStorage.getItem("email")
         setBtnLoader(true)
-        let res = await axios.post(`/api/verifyOtpForPass`, {
+        let res = await axios.post(`${Helper.BaseApi()}/verifyOtpForPass`, {
             otp: otp,
             email: email,
         })

@@ -3,6 +3,7 @@ import axios from "axios";
 import toast, {Toaster} from "react-hot-toast";
 import {Link, useNavigate} from "react-router-dom";
 import BtnLoader from "./BTNLoader.jsx";
+import Helper from '../utility/Helper.js';
 
 const LoginForm = () => {
     let [showPass,setShowPass] = useState(false)
@@ -26,18 +27,15 @@ const LoginForm = () => {
         let email = formData.get("email")
         let password = formData.get("password")
         setBtnLoader(true)
-        let res = await axios.post(`/api/loginUser`,{
+        let res = await axios.post(`${Helper.BaseApi()}/loginUser`,{
             email:email,
             password:password
         })
-        // setBtnLoader(false)
         if (res.data["status"] === "success") {
             toast.success(res.data["message"])
             localStorage.setItem("token", res.data["token"])
-            // window.location.href = "/"
             setTimeout(() => {
                 window.location.href = "/"
-                // navigate("/profile")
             }, 2000)
         } else {
             toast.error("Wrong Password or Email")

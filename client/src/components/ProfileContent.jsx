@@ -14,7 +14,7 @@ const ProfileContent = () => {
     }, []);
 
     const registratedUser = async () => {
-        let res = await axios.get(`/api/readUser`, Helper.tokenHeader())
+        let res = await axios.get(`${Helper.BaseApi()}/readUser`, Helper.tokenHeader())
         setUser(res.data["UserInformation"])
     }
     return (

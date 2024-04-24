@@ -20,7 +20,7 @@ const PlayersContent = () => {
 
         try {
             setLoader(true);
-            const res = await axios.get(`/api/readSportsman`, Helper.tokenHeader());
+            const res = await axios.get(`${Helper.BaseApi()}/readSportsman`, Helper.tokenHeader());
             setPlayer(res.data.playerData);
         } catch (error) {
             console.error("Error fetching players:", error);
@@ -32,7 +32,7 @@ const PlayersContent = () => {
     const deleteData = async (id) => {
         setLoader(true);
         try {
-            await axios.get(`/api/deleteSportsman/${id}`);
+            await axios.get(`${Helper.BaseApi()}/deleteSportsman/${id}`);
             await CreatedPlayers();
         } catch (error) {
             console.error("Error deleting player:", error);

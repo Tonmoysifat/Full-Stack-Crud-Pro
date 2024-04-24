@@ -3,6 +3,7 @@ import axios from "axios";
 import toast, {Toaster} from "react-hot-toast";
 import {Link, useNavigate} from "react-router-dom";
 import BtnLoader from "./BTNLoader.jsx";
+import Helper from '../utility/Helper.js';
 
 const VerifyEmailForm = () => {
     const [btnloader, setBtnLoader] = useState(false)
@@ -12,7 +13,7 @@ const VerifyEmailForm = () => {
         let formData = new FormData(e.target)
         let email = formData.get("email")
         setBtnLoader(true)
-        let res = await axios.post(`/api/createUser`,{
+        let res = await axios.post(`${Helper.BaseApi()}/createUser`,{
             email:email
         })
         // setBtnLoader(false)
