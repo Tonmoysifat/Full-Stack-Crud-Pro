@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import axios from "axios";
 import toast, {Toaster} from "react-hot-toast";
 import BtnLoader from "./BTNLoader.jsx";
@@ -8,6 +8,8 @@ import Helper from '../utility/Helper.js';
 const VerifyOtpPassForm = () => {
     const [btnloader, setBtnLoader] = useState(false)
     let navigate = useNavigate()
+    const data = useLocation()
+    console.log(data.state)
     const userInfo = async (e) => {
         e.preventDefault()
         let formData = new FormData(e.target)
@@ -32,6 +34,7 @@ const VerifyOtpPassForm = () => {
     }
     return (
         <div className="container">
+            {/*<Link to={"/"} state={}></Link>*/}
             <Toaster/>
             <Link to="/" className="text-decoration-none">
                 <h3 className="py-5 text-white">greatATHLETES.</h3>

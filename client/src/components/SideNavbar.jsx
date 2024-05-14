@@ -1,10 +1,22 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
+import Swal from 'sweetalert2'
 
 const SideNavbar = () => {
     const logout = () => {
-        localStorage.clear()
-        window.location.href = "/"
+        Swal.fire({
+            title: "Are you sure you want to logout?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor:"#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Logout!"
+        }).then( async (result) => {
+            if (result.isConfirmed) {
+                localStorage.clear()
+                window.location.href = "/"
+            }
+        });
     }
     return (
         <div>

@@ -14,15 +14,16 @@ const VerifyEmailForm = () => {
         let email = formData.get("email")
         setBtnLoader(true)
         let res = await axios.post(`${Helper.BaseApi()}/createUser`,{
-            email:email
+            email:email,
+            target:"forgetPassword"
         })
         // setBtnLoader(false)
         if (res.data["status"] === "success") {
             toast.success(res.data["message"])
             sessionStorage.setItem("email", res.data["email"])
-            // navigate("/verifyotppass")
+            sessionStorage.setItem("target", res.data["target"])
             setTimeout(() => {
-                navigate("/verifyotppass")
+                navigate("/verify",{state:`${Helper.BaseApi()}/verifyEmail`})
             }, 2000)
         } else {
             toast.error("Request Fail")

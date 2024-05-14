@@ -40,6 +40,33 @@
      border-right: 5px solid #ffc107;
      border-radius: 15px;
  }
+ .profileimg{
+     width: 120px;
+     height: 120px;
+     border-radius: 50% !important;
+ }
+.profileimg2{
+     width: 35px;
+     height: 35px;
+     border-radius: 50% !important;
+ }
+ .proIconDiv{
+     bottom: -60px;
+ }
+ .iconss{
+     width: 120px;
+     justify-content: center;
+     background: #000000ba;
+     height: 120px;
+     align-items: center;
+     border-radius: 50%;
+ }
+ .dropdown-toggle{
+     display: flex;
+ }
+ .dropdown-toggle::after{
+     margin-top: 15px;
+ }
 @media (min-width: 992px) {
     .sideNav{
         width: 20%;

@@ -46,11 +46,12 @@ const PasswordResetForm = () => {
             NewPassword: NewPassword,
             ConfirmPassword: ConfirmPassword,
         })
-        // setBtnLoader(false)
+
         if (res.data["status"] === "success") {
             toast.success(res.data["message"])
             sessionStorage.removeItem("email")
             sessionStorage.removeItem("otp")
+            sessionStorage.removeItem("target")
             setTimeout(() => {
                 navigate("/login")
             }, 2000)

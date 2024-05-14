@@ -35,7 +35,8 @@ const Registration = () => {
             firstname: firstname,
             lastname: lastname,
             mobile: mobile,
-            password: password
+            password: password,
+            target:"Registration"
         })
         // setBtnLoader(false)
         if (res.data["status"] === "success") {
@@ -45,6 +46,7 @@ const Registration = () => {
             sessionStorage.setItem("lastname", res.data["lastname"])
             sessionStorage.setItem("mobile", res.data["mobile"])
             sessionStorage.setItem("password", res.data["password"])
+            sessionStorage.setItem("target", res.data["target"])
             // navigate("/verify")
             setTimeout(() => {
                 navigate("/verify")

@@ -3,6 +3,7 @@ import axios from "axios";
 import Helper from "../utility/Helper.js";
 import { Link } from "react-router-dom";
 import FullScreenLoader from "./FullScreenLoader.jsx";
+import Swal from 'sweetalert2'
 
 const PlayersContent = () => {
     const [player, setPlayer] = useState([]);
@@ -17,7 +18,6 @@ const PlayersContent = () => {
     }, []);
 
     const CreatedPlayers = async () => {
-
         try {
             setLoader(true);
             const res = await axios.get(`${Helper.BaseApi()}/readSportsman`, Helper.tokenHeader());
@@ -30,10 +30,27 @@ const PlayersContent = () => {
     };
 
     const deleteData = async (id) => {
-        setLoader(true);
         try {
-            await axios.get(`${Helper.BaseApi()}/deleteSportsman/${id}`);
-            await CreatedPlayers();
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor:"#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "Yes, delete it!"
+            }).then( async (result) => {
+                if (result.isConfirmed) {
+                    await Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                    });
+                    setLoader(true);
+                    await axios.get(`${Helper.BaseApi()}/deleteSportsman/${id}`);
+                    await CreatedPlayers();
+                }
+            });
         } catch (error) {
             console.error("Error deleting player:", error);
         } finally {
